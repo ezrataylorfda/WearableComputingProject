@@ -1,0 +1,44 @@
+This dataset and analysis is based on the "Human Activity Recognition Using Smartphones Dataset
+Version 1.0".
+
+The analysis makes use of the following files:
+- 'README.txt'
+- 'features_info.txt': Shows information about the variables used on the feature vector. 
+- 'features.txt': List of all features. (used as analysis input)
+- 'activity_labels.txt': Links the class labels with their activity name. (used as analysis input)
+- 'train/X_train.txt': Training set. (used as analysis input)
+- 'train/y_train.txt': Training labels. (used as analysis input)
+- 'test/X_test.txt': Test set. (used as analysis input)
+- 'test/y_test.txt': Test labels. (used as analysis input)
+- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. (used as analysis input)
+- 'test/subject_test.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. (used as analysis input)
+
+The analysis output is a tidy data set with the following columns:
+1. Subject
+	- A numeric identifier of the subject who carried out the experiment
+	- Ranges from 1 to 30
+2. Activity
+	- Measurements were taken as subjects performed various activities
+	- Original data set included activities as values 1:6
+	- Tidy data set had those activity numbers replaced with their descriptors per the activity_labels.txt file
+3. Domain
+	- Descriptor describing which signals were taken from the time domain (t) and which signals had Fast Fourier Transform (FFT) applied to create frequency domain (f) signals.
+	- Domain take the values "Frequency" or "Time"
+	- Domain data was extracted from the feature vector. For example, in the vector "tBodyAcc-XYZ", the first character is "t", which indicates this data is in the time domain. In the vector "fBodyGyroJerkMag", the first character is "f", which indicates this data is in the frequency domain.
+
+4. Signal
+	- Descriptor identifying which information was captured by the accelerometer and gyroscope.
+	- Signal data was extracted from the feature vector. For example, in the vector "tBodyGyroJerk-XYZ", the signal is "BodyGyroJerk". In the vector "fBodyGyroJerkMag", the signal is "BodyGyroJerkMag".
+5. Function
+	- Descriptor identifying which function/calculation was applied to the raw dataset
+	- This dataset only includes the mean and standard deviation functions.
+	- Function takes on the values "Mean" or "Standard_Deviation"
+	- Function descriptors were extracted from the feature vector, with "mean()" representing "Mean" and "std()" representing "Standard_Deviation"
+6. Axis
+	- Descriptor used to denote 3-axial signals in the X, Y and Z directions. Not all signals have a -XYZ descriptor.
+	- Axis descriptors were extracted from the feature vector (X, Y, or Z). This descriptor is blank when an axis value is not applicable.
+7. average
+	- The feature value normalized and bounded within [-1,1].
+	- The feature value does not have associated unites.
+	- Average calculates the mean for each set of signals with a unique subject, activity, domain, signal, function, and axis combination.
+	- For example, a mean would be calculated for all signals for Subject 1, who is performing the activity walking (1 / Walking), and feature vector "tGravityAcc-mean()-Z". This feature vector is separated into distinct columns to create a tidy set with Domain = Time, Signal = GravityAcc, Function = Mean, and Axis = Z.
