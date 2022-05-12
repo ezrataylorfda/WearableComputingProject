@@ -46,6 +46,6 @@ run_analysis <- function(path) {
       tidy_data2 <- tidy_data[order(tidy_data$Subject,tidy_data$Activity,tidy_data$Domain,tidy_data$Signal,tidy_data$Function,tidy_data$Axis),]
       tidy_data3 <- ddply(tidy_data2,.(Subject,Activity,Domain,Signal,Function,Axis),summarize,average=mean(value))
       print(tidy_data3)
-      write.csv(tidy_data3,".\\WearableComputingProject_Tidy_Data.csv",row.names=FALSE)
+      write.csv(tidy_data3,".\\WearableComputingProject\\WearableComputingProject_Tidy_Data.csv",row.names=FALSE)
       
 }
